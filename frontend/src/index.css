@@ -23,3 +23,10 @@ body{
 ::-webkit-scrollbar-thumb:hover{
     background: #242424;
 }
+
+
+@layer components{
+    .bg-glass{
+        @apply bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10  border-gray-800 text-white
+    }
+}
