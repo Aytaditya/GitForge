@@ -28,7 +28,7 @@ const Sidebar = () => {
 
        {authUser && (
           <Link to="/likes" className='flex justify-center p-1.5 transition-colors duration-200 rounded-lg hover:bg-gray-800 mt-1' title="Like Page">
-          <FaHeart size={size} />
+          <FaHeart size={size}  />
         </Link>
        )}
 
