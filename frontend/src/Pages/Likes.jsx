@@ -3,8 +3,8 @@ import { FaHeart } from "react-icons/fa";
 const Likes = () => {
 	return (
 		<div className='relative overflow-x-auto shadow-md rounded-lg px-4'>
-			<table className='w-full text-sm text-left rtl:text-right bg-glass overflow-hidden border'>
-				<thead className='text-xs uppercase bg-glass border-b'>
+			<table className='w-full text-sm text-left rtl:text-right bg-glass overflow-hidden'>
+				<thead className='text-xs uppercase bg-glass'>
 					<tr>
 						<th scope='col' className='p-4'>
 							<div className='flex items-center'>No</div>
@@ -30,8 +30,8 @@ const Likes = () => {
 						<th scope='row' className='flex items-center px-6 py-4 whitespace-nowrap '>
 							<img
 								className='w-10 h-10 rounded-full'
-								src="https://avatar.iran.liara.run/public/boy"
-								alt='Jese image'
+								src={"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
+								alt=''
 							/>
 							<div className='ps-3'>
 								<div className='text-base font-semibold'>Aytaditya</div>

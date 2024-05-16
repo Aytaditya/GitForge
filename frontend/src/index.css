@@ -27,6 +27,8 @@ body{
 
 @layer components{
     .bg-glass{
-        @apply bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10  border-gray-800 text-white
+        @apply bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-800 text-white
     }
 }
+
+
