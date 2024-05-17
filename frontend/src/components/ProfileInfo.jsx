@@ -4,7 +4,12 @@ import { RiGitRepositoryFill, RiUserFollowFill, RiUserFollowLine } from "react-i
 import { FaXTwitter } from "react-icons/fa6";
 import { TfiThought } from "react-icons/tfi";
 import { FaEye } from "react-icons/fa";
+
+
+
 const ProfileInfo = ({userProfile}) => {
+ 
+  
 
   return (
     <div className="lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10">
@@ -18,7 +23,7 @@ const ProfileInfo = ({userProfile}) => {
           {/* view ongithub link */}
           <div className='flex gap-2 items-center flex-col'>
             <a
-              href={userProfile.html_url}
+              href={userProfile?.html_url}
               target='_blank'
               rel='noreferrer'
               className='bg-glass font-medium w-full text-xs p-2 rounded-md cursor-pointer border border-blue-400 flex items-center gap-2'
@@ -63,7 +68,7 @@ const ProfileInfo = ({userProfile}) => {
         {/* member since */}
         <div className='my-2'>
           <p className='text-gray-500 font-bold text-sm'>Member since</p>
-          <p >1 Jan, 2023</p>
+          <p >{userProfile.created_at.substring(0,10)}</p>
         </div>
 
         {/* Email Address */}
