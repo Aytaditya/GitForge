@@ -2,6 +2,8 @@ import { GrLogout } from "react-icons/gr";
 
 const Logout = () => {
     const size=26;
+    
+
   return (
     <>
     <img

@@ -22,11 +22,15 @@ const Home = () => {
     try {
       const userRes = await fetch(`https://api.github.com/users/${username}`);
       const userProf = await userRes.json();
+
+      setSortType('') //to remove the border of button 
+
       if (userRes.status === 404) {
-        throw new Error("Invalid User");
+        throw new Error("User Does not Exist");
       }
       setUserProfile(userProf);
-      console.log(userProf);
+      
+      // console.log(userProf);
       
       
       const repoRes = await fetch(`https://api.github.com/users/${username}/repos`);
@@ -53,19 +57,36 @@ const Home = () => {
       setRepos([]);
       setUserProfile(null);
       setUsername(user);
+      
 
       await getProfile(user);
       
+  }
+
+  const onSort=(sortType)=>{
+    if(sortType==='recent'){
+      repos.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)); //latest one on top
+
+    }
+    if(sortType==='stars'){
+      repos.sort((a,b)=>b.stargazers_count-a.stargazers_count);
+    }
+    if (sortType==='forks'){
+      repos.sort((a,b)=>b.forks_count-a.forks_count);
+    }
+
+    setSortType(sortType);
+    setRepos([...repos]); //to set the new repos 
   }
 
   return (
     <div>
       <div className="m-4">
         <Search onSearch={onSearch}/>
-        <SortRepos />
+        {repos.length>0 && (<SortRepos sortType={sortType} onSort={onSort}/> )}
         <div className="flex gap-4 flex-col lg:flex-row justify-center items-start">
           {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
-          {repos.length && !loading && <Repos repos={repos} />}
+          {!loading && <Repos repos={repos} />}
           {loading && <Spinner />}
         </div>
        

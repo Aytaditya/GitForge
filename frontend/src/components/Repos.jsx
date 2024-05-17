@@ -9,7 +9,7 @@ const Repos = ({repos}) => {
          <Repo key={repos.id} repos={repos} />
         ))}
 
-        {repos.length===0 && <div className="flex items-center justify-center h-32">No repositories found</div>}
+        {repos.length===0 && <div className="flex items-center justify-center h-32">No Repositories Found</div>}
 
       </ol>
     </div>
