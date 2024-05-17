@@ -1,9 +1,9 @@
 import Repo from '../components/Repo'
 
 
-const Repos = ({repos}) => {
+const Repos = ({repos,border}) => {
   return (
-    <div className="lg:w-2/3 w-full bg-glass rounded-lg px-8 py-6">
+    <div className={`lg:w-2/3 w-full bg-glass rounded-lg px-8 py-6 border-${border}`}>
       <ol className="relative border-s border-gray-200 ">
         {repos.map(repos=>(
          <Repo key={repos.id} repos={repos} />

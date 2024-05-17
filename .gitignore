@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 general.txt
+
+.env

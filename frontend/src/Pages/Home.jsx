@@ -17,10 +17,16 @@ const Home = () => {
   const [sortType, setSortType] = useState("recent");
   const [username, setUsername] = useState("Aytaditya");
 
+  const border=""
+
   const getProfile = async (username) => {
     setLoading(true);
     try {
-      const userRes = await fetch(`https://api.github.com/users/${username}`);
+      const userRes = await fetch(`https://api.github.com/users/${username}`,{
+        headers:{
+          authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
+        }
+      });
       const userProf = await userRes.json();
 
       setSortType('') //to remove the border of button 
@@ -86,7 +92,7 @@ const Home = () => {
         {repos.length>0 && (<SortRepos sortType={sortType} onSort={onSort}/> )}
         <div className="flex gap-4 flex-col lg:flex-row justify-center items-start">
           {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
-          {!loading && <Repos repos={repos} />}
+          {!loading && <Repos repos={repos} border={border}/>}
           {loading && <Spinner />}
         </div>
        

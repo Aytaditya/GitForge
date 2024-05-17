@@ -12,7 +12,7 @@ const ProfileInfo = ({userProfile}) => {
   
 
   return (
-    <div className="lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10">
+    <div className="lg:w-1/3 w-full flex flex-col gap-2 lg:sticky md:top-10">
       <div className="bg-glass rounded-lg p-4 hover:bg-gray-600/10">
         <div className="flex gap-4 items-center">
           {/* image of user */}
