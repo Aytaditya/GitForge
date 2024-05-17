@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { FaCodeBranch, FaCopy, FaRegStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 
@@ -38,6 +39,11 @@ const Repo = ({repos}) => {
 				<span
 					className='cursor-pointer bg-green-100 text-green-800 text-xs
 					font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1'
+
+					onClick={() => {
+						navigator.clipboard.writeText(repos.clone_url);
+						toast.success('Repo URL Copied to Clipboard');
+					}}
 				>
 					<FaCopy /> Clone
 				</span>
