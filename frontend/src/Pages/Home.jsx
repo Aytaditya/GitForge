@@ -22,28 +22,25 @@ const Home = () => {
   const getProfile = async (username) => {
     setLoading(true);
     try {
-      const userRes = await fetch(`https://api.github.com/users/${username}`,{
-        headers:{
-          authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
-        }
+      const res = await fetch(`http://localhost:5000/api/users/profile/${username}`,{
+        method:'GET',
       });
-      const userProf = await userRes.json();
+
+      const {userRes,repos} = await res.json();
+
+      //console.log(userRes);
+      //console.log(repos);
 
       setSortType('') //to remove the border of button 
 
-      if (userRes.status === 404) {
+      if (res.status === 404) {
         throw new Error("User Does not Exist");
       }
-      setUserProfile(userProf);
-      
-      // console.log(userProf);
-      
-      
-      const repoRes = await fetch(`https://api.github.com/users/${username}/repos`);
 
-      const repos = await repoRes.json();
+
+      setUserProfile(userRes);
       setRepos(repos);
-      console.log(repos);
+
 
     } catch (error) {
       toast.error(error.message);
