@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import userRoutes from './Routes/userRoutes.js'
+import connectDB from './db/connectDB.js';
 
 
 const app=express();
@@ -23,5 +24,6 @@ app.use('/api/users',userRoutes);
 
 
 app.listen(5000,()=>{
+    connectDB();
     console.log('Server started on http://localhost:5000');
 })

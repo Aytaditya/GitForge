@@ -41,6 +41,8 @@ const Home = () => {
       setUserProfile(userRes);
       setRepos(repos);
 
+      localStorage.setItem('userProfile', JSON.stringify(userRes));
+
 
     } catch (error) {
       toast.error(error.message);
@@ -53,6 +55,8 @@ const Home = () => {
     getProfile(username);
   }, [username]);
 
+  
+
   const onSearch=async(e,user)=>{
       e.preventDefault();
 
@@ -60,6 +64,8 @@ const Home = () => {
       setRepos([]);
       setUserProfile(null);
       setUsername(user);
+
+      localStorage.removeItem('userProfile');
       
 
       await getProfile(user);

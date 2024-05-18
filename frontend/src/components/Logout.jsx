@@ -1,13 +1,24 @@
+/* eslint-disable no-unused-vars */
+import { useEffect, useState} from "react";
 import { GrLogout } from "react-icons/gr";
 
 const Logout = () => {
     const size=26;
+
+    const [image, setImage] = useState(null);
+    
+    useEffect(() => {
+      const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+      if (userProfile && userProfile.avatar_url) {
+          setImage(userProfile.avatar_url);
+      }
+  }, []);
     
 
   return (
     <>
     <img
-        src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+        src={image}
         alt="Profile logo"
         className="w-10 h-10 rounded-full border border-gray-800 "/>
 
