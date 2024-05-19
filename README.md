@@ -16,7 +16,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 - **Repository Exploration**: Explore the top 30 most liked repositories in JavaScript, TypeScript, C#, Python, Go, Flutter, Dart, Java, C++, and Swift.
 
 
-![Getting Started](./website_imgage.png)
+![Getting Started](./website_image.png)
 
 
 ## Installation
@@ -123,4 +123,4 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 - [Docker](https://www.docker.com/)
 
 
-![Getting Started](./website_imgage2.png)
+![Getting Started](./website_image2.png)
