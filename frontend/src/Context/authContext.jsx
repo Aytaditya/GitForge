@@ -9,10 +9,12 @@ export const AuthContext=createContext()
 
 export const AuthContextProvider=({children})=>{
     const [authUser,setAuthUser]=useState(null)
-    //const[loading,setLoading]=useState(true)
+    const[loading,setLoading]=useState(true)  // to prevent navigation from explore,likes to home page
 
     const userLoggedIn=async()=>{
+
         try {
+            setLoading(true);
             const res=await fetch('http://localhost:5000/api/auth/check',{credentials:"include"})
 
             const data=await res.json()
@@ -21,6 +23,8 @@ export const AuthContextProvider=({children})=>{
             
         } catch (error) {
             toast.error(error.message)
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -29,7 +33,7 @@ export const AuthContextProvider=({children})=>{
     },[])
 
     return (
-        <AuthContext.Provider value={{authUser,setAuthUser}}>
+        <AuthContext.Provider value={{authUser,setAuthUser,loading}}>
             {children}
         </AuthContext.Provider>
     )

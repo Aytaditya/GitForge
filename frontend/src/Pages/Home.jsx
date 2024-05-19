@@ -50,6 +50,7 @@ const Home = () => {
       if (!localStorage.getItem('userProfile')) {
         localStorage.setItem('userProfile', JSON.stringify(userRes));
       }
+      
 
     } catch (error) {
       toast.error(error.message);

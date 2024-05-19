@@ -26,6 +26,7 @@ const Logout = () => {
         const data=res.json();
         setAuthUser(null);
         navigate("/login")
+        toast.success("Logged Out Successfully")
       }
       catch(error){
         toast.error(error.message)

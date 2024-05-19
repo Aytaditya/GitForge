@@ -1,5 +1,4 @@
 
-    
 export const getProfileandRepos=async(req,res)=>{
 
     try {
@@ -43,3 +42,7 @@ export const getProfileandRepos=async(req,res)=>{
     }
 }
 
+
+export const likeProfile=async(req,res)=>{
+    res.send("joo");
+}
