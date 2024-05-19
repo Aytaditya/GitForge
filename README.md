@@ -110,7 +110,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 - **backend**
     - `npm run server`: Start the backend server.
 - **client**
-    - `npm start`: Start the React development server.
+    - `npm run dev`: Start the React+Vite development server.
 
 
 
