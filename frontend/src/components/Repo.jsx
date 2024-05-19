@@ -58,7 +58,8 @@ const Repo = ({repos}) => {
 			<p className='mb-4 text-base font-normal text-gray-500'>
 				{repos.description ? repos.description.slice(0,500) : 'No Description Provided'}
 			</p>
-			<img src={`/${language}.svg`} alt=' language icon' className='h-8 cursor-pointer' title={repos.language} />
+			{language ? <img src={`/${language}.svg`} alt='language icon' className='h-8 cursor-pointer' title={repos.language} /> : null}
+
 
 		</li>
 	);

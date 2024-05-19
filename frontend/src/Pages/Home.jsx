@@ -41,7 +41,10 @@ const Home = () => {
       setUserProfile(userRes);
       setRepos(repos);
 
-      localStorage.setItem('userProfile', JSON.stringify(userRes));
+      //to set my localstorage once
+      if (!localStorage.getItem('userProfile')) {
+        localStorage.setItem('userProfile', JSON.stringify(userRes));
+      }
 
 
     } catch (error) {
@@ -65,7 +68,6 @@ const Home = () => {
       setUserProfile(null);
       setUsername(user);
 
-      localStorage.removeItem('userProfile');
       
 
       await getProfile(user);

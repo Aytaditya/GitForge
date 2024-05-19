@@ -6,6 +6,6 @@
             console.log("Connected to Mongodb")
             
         } catch (error) {
-            console.log("Error connecting to Mongodb",error.message)
+            console.log("Error connecting to Mongodb:",error.message)
         }
     }

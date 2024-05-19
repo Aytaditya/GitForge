@@ -1,9 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import session from "express-session"
+import passport from 'passport';
+
+import connectDB from './db/connectDB.js';
 
 import userRoutes from './Routes/userRoutes.js'
-import connectDB from './db/connectDB.js';
+import authRoutes from './Routes/authRoutes.js'
+
+import './passport/github.auth.js'
 
 
 const app=express();
@@ -11,6 +17,11 @@ const app=express();
 app.use(express.json());
 
 app.use(cors());
+
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 dotenv.config();
 
@@ -20,6 +31,7 @@ app.get('/',(req,res)=>{
     res.send('API is running...');
 })
 
+app.use('/api/auth',authRoutes)
 app.use('/api/users',userRoutes);
 
 
