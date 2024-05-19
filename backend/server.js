@@ -16,7 +16,12 @@ const app=express();
 
 app.use(express.json());
 
-app.use(cors());
+const corsOptions = {
+    origin: true, // Reflects the request origin
+    credentials: true, // Allows cookies and other credentials
+};
+
+app.use(cors(corsOptions));
 
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());

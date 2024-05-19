@@ -25,24 +25,24 @@ passport.use(
 			callbackURL: "/api/auth/github/callback",
 		},
 		async function (accessToken, refreshToken, profile, done) {
-			// const user = await User.findOne({ username: profile.username });
-			// // signup
-			// if (!user) {
-			// 	const newUser = new User({
-			// 		name: profile.displayName,
-			// 		username: profile.username,
-			// 		profileUrl: profile.profileUrl,
-			// 		avatarUrl: profile.photos[0].value,
-			// 		likedProfiles: [],
-			// 		likedBy: [],
-			// 	});
-			// 	await newUser.save();
-			// 	done(null, newUser);
-			// } else {
-			// 	done(null, user);
-			// }
+			const user = await User.findOne({ username: profile.username });
+			// signup
+			if (!user) {
+				const newUser = new User({
+					name: profile.displayName,
+					username: profile.username,
+					profileUrl: profile.profileUrl,
+					avatarUrl: profile.photos[0].value,
+					likedProfiles: [],
+					likedBy: [],
+				});
+				await newUser.save();
+				done(null, newUser);
+			} else {
+				done(null, user);
+			}
 
-            console.log(profile)
+            //console.log(profile)
 		}
 	)
 );
