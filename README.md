@@ -25,7 +25,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 
 - Node.js
 - Docker
-- MongoDB (if not using Docker)
+- MongoDB
 - GitHub OAuth App credentials
 
 ### Steps
@@ -75,7 +75,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 
     # In another terminal, start the frontend development server
     cd client
-    npm start
+    npm run dev
     ```
 
 ## Usage
