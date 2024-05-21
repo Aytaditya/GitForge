@@ -51,7 +51,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 
     ```bash
     npm install
-    cd client
+    cd .\frontend\
     npm install
     cd ..
     ```
@@ -101,7 +101,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 ### File Structure
 
 - **backend/**: Contains the backend code (Express.js, MongoDB).
-- **client/**: Contains the frontend code (React, Tailwind CSS).
+- **frontend/**: Contains the frontend code (React, Tailwind CSS).
 - **docker-compose.yml**: Docker Compose file for container orchestration.
 - **.env**: Environment variables (not included in the repository).
 
@@ -109,7 +109,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 
 - **backend**
     - `npm run server`: Start the backend server.
-- **client**
+- **frontend**
     - `npm run dev`: Start the React+Vite development server.
 
 
