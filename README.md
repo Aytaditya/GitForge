@@ -33,7 +33,7 @@ This project is a GitHub-inspired web application built using the MERN stack (Mo
 1. **Clone the Repository**
     ```bash
     git clone https://github.com/your-username/github-inspired-app.git
-    cd github-inspired-app
+    cd gitForge
     ```
 
 2. **Set Up Environment Variables**
