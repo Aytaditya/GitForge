@@ -1,6 +1,36 @@
+/* eslint-disable no-unused-vars */
 import { FaHeart } from "react-icons/fa";
+import { useState,useEffect } from 'react';
+import {toast} from 'react-hot-toast'
 
 const Likes = () => {
+	const [likes, setLikes] = useState([]);
+
+	useEffect(() => {
+
+		const getLikes=async()=>{
+			try {
+				const res=await fetch('http://localhost:5000/api/users/likes',{
+				method:'GET',
+				credentials:'include'
+		})
+			const data= await res.json()
+
+			if(!res.ok){
+				throw new Error(data.message)
+			}
+
+			setLikes(data.likedBy)
+	
+			} catch (error) {
+
+				toast.error(error.message)
+			}
+		}
+		getLikes() //running getLikes function in useEffect
+	}, []);
+	console.log(likes)
+
 	return (
 		<div className='relative overflow-x-auto shadow-md rounded-lg px-4'>
 			<table className='w-full text-sm text-left rtl:text-right bg-glass overflow-hidden'>
