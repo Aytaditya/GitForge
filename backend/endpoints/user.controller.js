@@ -91,7 +91,7 @@ export const likeProfile = async (req, res) => {
 export const getLikes=async(req,res)=>{
     try {
         
-        const user=await User.findOne(req.user._id.toString())
+        const user = await User.findOne({ _id: req.user._id });
 
         res.status(200).json({likedBy:user.likedProfiles})
 
