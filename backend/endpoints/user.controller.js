@@ -1,3 +1,4 @@
+import User from "../models/user.model.js";
 
 export const getProfileandRepos=async(req,res)=>{
 
@@ -43,6 +44,59 @@ export const getProfileandRepos=async(req,res)=>{
 }
 
 
-export const likeProfile=async(req,res)=>{
-    res.send("joo");
+export const likeProfile = async (req, res) => {
+    try {
+        const { username } = req.params; // extracting username from url
+
+        // Find the current user by their ID
+        const user = await User.findById(req.user._id.toString());
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Find the user to like by their username
+        const userToLike = await User.findOne({ username });
+
+        if (!userToLike) {
+            return res.status(404).json({ message: "User not a Member" });
+        }
+
+        // Checking if the profile is already liked
+        if (user.likedProfiles.includes(userToLike.username)) {
+            return res.status(400).json({ message: "Profile already liked" });
+        }
+
+        // Add the liking user to the likedBy array of the userToLike
+        userToLike.likedBy.push({
+            username: user.username,
+            avatarUrl: user.avatarUrl,
+            likedDate: Date.now()
+        });
+
+        // Add the liked user's username to the liking user's likedProfiles array
+        user.likedProfiles.push(userToLike.username);
+
+        // Save both documents in parallel
+        await Promise.all([userToLike.save(), user.save()]);
+
+        res.status(200).json({ message: "Profile liked" });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+
+export const getLikes=async(req,res)=>{
+    try {
+        
+        const user=await User.findOne(req.user._id.toString())
+
+        res.status(200).json({likedBy:user.likedProfiles})
+
+
+    } catch (error) {
+        res.status(500).json({message:error.message})
+    }
 }
